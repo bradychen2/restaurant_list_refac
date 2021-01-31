@@ -18,6 +18,29 @@ router.get('/search', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// Sort
+router.get('/sort', (req, res) => {
+  const sortBy = req.query.sortBy
+  if (sortBy === 'name-reverse') {
+    Restaurant.find()
+      .lean()
+      .sort({ name_en: 'desc' })
+      .then((restaurant) => {
+        res.render('index', { restaurants: restaurant, stylesheet: 'index' })
+      })
+      .catch(error => console.log(error))
+
+  } else {
+    Restaurant.find()
+      .lean()
+      .sort({ [sortBy]: 'asc' })
+      .then((restaurant) => {
+        res.render('index', { restaurants: restaurant, stylesheet: 'index' })
+      })
+      .catch(error => console.log(error))
+  }
+})
+
 // Go to create page
 router.get('/new', (req, res) => {
   res.render('new', { stylesheet: 'new' })

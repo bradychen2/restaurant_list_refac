@@ -19,16 +19,35 @@
     </div>
     {{!-- DropDown --}}
     <div class="dropdown row justify-content-end align-items-center col-md-4">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        排序按照
-      </a>
+      <form action="/restaurants/sort" method="GET">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-expanded="false">
+          排序按照
+        </button>
 
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li>
+            <button type="submit" class="btn dropdown-item" name="sortBy" value="name_en">
+              英文名稱 -> A to Z
+            </button>
+          </li>
+          <li>
+            <button type="submit" class="btn dropdown-item" name="sortBy" value="name-reverse">
+              英文名稱 -> Z to A
+            </button>
+          </li>
+          <li>
+            <button type="submit" class="btn dropdown-item" name="sortBy" value="category">
+              category
+            </button>
+          </li>
+          <li>
+            <button type="submit" class="btn dropdown-item" name="sortBy" value="location">
+              location
+            </button>
+          </li>
+        </ul>
+      </form>
     </div>
   </div>
 
