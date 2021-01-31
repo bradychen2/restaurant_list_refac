@@ -14,7 +14,7 @@ router.get('/search', (req, res) => {
     }
   )
     .lean()
-    .then(restaurant => res.render('index', { restaurants: restaurant, stylesheet: 'index' }))
+    .then(restaurant => res.render('index', { restaurants: restaurant, keyword, stylesheet: 'index' }))
     .catch(error => console.log(error))
 })
 
