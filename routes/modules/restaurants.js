@@ -62,7 +62,12 @@ router.post('/', (req, res) => {
     description: restaurant.description
   })
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      if (error.name = 'ValidationError') {
+        res.render('new', { restaurant, stylesheet: 'new', error })
+      }
+    })
 })
 
 // Show details
